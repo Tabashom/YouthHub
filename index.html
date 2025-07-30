@@ -117,6 +117,7 @@
     }
 
     .hero-text h1 {
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
       font-size: 42px;
       max-width: 800px;
       margin: auto;
@@ -204,13 +205,17 @@
   <header class="hero-section">
     <div class="overlay"></div>
     <div class="navbar">
-      <div class="logo">YouthHub</div>
+<div style="display: flex; align-items: center;"><img src="image/logoboro.png" alt="YouthHub Logo" style="height: 18px; width: auto; margin-right: 12px;" />
+
+  <h1 style="font-size: 30px; margin: 0; font-family: Arial, sans-serif;">YouthHub</h1>
+</div>
+
       <nav>
         <ul class="nav-links">
-          <li><a href="todo.html">📋 To-Do List</a></li>
-          <li><a href="noticeboard.html">📌 Notice Board</a></li>
-          <li><a href="resources.html">📁 Study Resources</a></li>
-          <li><a href="tictactoe.html">🎮 Tic Tac Toe</a></li>
+          <li><a href="todo.html">To-Do List</a></li>
+          <li><a href="noticeboard.html">Notice Board</a></li>
+          <li><a href="resources.html">Study Resources</a></li>
+          <li><a href="tictactoe.html">Tic Tac Toe</a></li>
           <li id="logoutNav" style="display:none;"><button id="logoutBtn">🚪 Logout</button></li>
         </ul>
       </nav>
@@ -220,7 +225,7 @@
       </div>
     </div>
     <div class="hero-text">
-      <h1>Your CSE study companion — resources, notices, and task management all in one place.</h1>
+      <h1>Your study companion: Resources, Notices, Break time games and Task management all in one place.</h1>
     </div>
   </header>
 
@@ -231,11 +236,25 @@
       <p>Enjoy full access to all YouthHub features tailored for CSE students.</p>
     </section>
   </main>
+<footer style="
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 20px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+">
+  <p style="margin: 0;">
+    &copy; 2025 <strong>YouthHub</strong>. Built for CSE students with care &nbsp;|&nbsp;
+    <a href="mail:support@youthhub.com" style="
+      color: #4ea1d3;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    " onmouseover="this.style.color='#78c0ff'" onmouseout="this.style.color='#4ea1d3'">mail:tabashom15-5701@diu.edu.bd|Dhaka,Bangladesh</a>
+  </p>
+</footer>
 
-  <!-- ✅ Footer Section -->
-  <footer>
-    <p>&copy; 2025 YouthHub. Built for CSE students with care | <a href="mail:support@youthhub.com">Contact Us</a></p>
-  </footer>
 
   <!-- JS Module for Auth -->
   <script type="module" src="js/auth.js"></script>
