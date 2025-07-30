@@ -1,28 +1,16 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+import { auth } from './firebase.js'; // or correct path to your Firebase setup
+import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBeQh7_LDjlIzaj9gHM4YEhSnR0swUO7AU",
-  authDomain: "youthhub-543e9.firebaseapp.com",
-  projectId: "youthhub-543e9",
-  storageBucket: "youthhub-543e9.firebasestorage.app",
-  messagingSenderId: "60933851932",
-  appId: "1:60933851932:web:f5736e19beae029a1808d9"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-const userEmailSpan = document.getElementById('userEmail');
-const logoutBtn = document.getElementById('logoutBtn');
 const loginNav = document.getElementById('loginNav');
 const logoutNav = document.getElementById('logoutNav');
+const logoutBtn = document.getElementById('logoutBtn');
 const welcomeSection = document.getElementById('welcomeSection');
 const guestSection = document.getElementById('guestSection');
+const userEmailSpan = document.getElementById('userEmail');
 
 onAuthStateChanged(auth, (user) => {
-  console.log('Auth state changed:', user);
   if (user) {
+    console.log("Logged in:", user.email);
     userEmailSpan.textContent = user.email;
 
     welcomeSection.style.display = "block";
@@ -30,6 +18,7 @@ onAuthStateChanged(auth, (user) => {
     logoutNav.style.display = "flex";
     loginNav.style.display = "none";
   } else {
+    console.log("No user logged in.");
     welcomeSection.style.display = "none";
     guestSection.style.display = "block";
     logoutNav.style.display = "none";
@@ -38,10 +27,9 @@ onAuthStateChanged(auth, (user) => {
 });
 
 logoutBtn.addEventListener("click", () => {
-  signOut(auth)
-    .then(() => {
-      alert("Logged out successfully");
-      // UI updates via onAuthStateChanged
-    })
-    .catch((error) => alert("Logout error: " + error.message));
+  signOut(auth).then(() => {
+    alert("Logged out successfully");
+  }).catch((error) => {
+    alert("Logout error: " + error.message);
+  });
 });

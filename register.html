@@ -4,20 +4,138 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YouthHub Register</title>
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+    
+    .register-container {
+      background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+      padding: 50px 60px;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.8);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      position: relative;
+    }
+    
+    h2 {
+      font-size: 38px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffd700;
+      text-shadow: 0 0 8px #ffd700aa;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    input[type="email"], input[type="password"] {
+      padding: 15px 18px;
+      border-radius: 12px;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      background-color: #333;
+      color: #eee;
+      transition: background-color 0.3s ease;
+    }
+    
+    input::placeholder {
+      color: #bbb;
+    }
+    
+    input:focus {
+      outline: none;
+      background-color: #444;
+      box-shadow: 0 0 8px #ffd700;
+    }
+    
+    button[type="submit"] {
+      padding: 15px;
+      background: #ffd700;
+      border: none;
+      border-radius: 25px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 6px 12px #e5c100aa;
+    }
+    
+    button[type="submit"]:hover {
+      background: #e5c100;
+    }
+    
+    p {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    p a {
+      color: #1e90ff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    p a:hover {
+      color: #78c0ff;
+      text-decoration: underline;
+    }
+    
+    /* Responsive */
+    @media (max-width: 480px) {
+      .register-container {
+        padding: 35px 25px;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      button[type="submit"] {
+        font-size: 18px;
+        padding: 12px;
+      }
+    }
+  </style>
+  
   <script type="module" src="js/register.js" defer></script>
 </head>
 <body>
-  <h2>Create an Account</h2>
-  <form id="registerForm">
-    <input type="email" id="email" placeholder="Email" required />
-    <br />
-    <input type="password" id="password" placeholder="Password" required />
-    <br />
-    <button type="submit">Register</button>
-  </form>
-  <p>
-    Already have an account? <a href="login.html">Login here</a>
-  </p>
+  
+  <div class="register-container">
+    <h2>Create an Account</h2>
+    <form id="registerForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
 </body>
 </html>
