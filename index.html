@@ -2,173 +2,242 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YouthHub Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouthHub | Home</title>
+
+<link rel="icon" href="image/favboro.png" type="image/png" />
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
-      margin: 0; padding: 0;
     }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(135deg, #e0f0ff 0%, #ffffff 100%);
-      color: #34495e;
-      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background-color: #111;
+    }
+    .hero-section {
+      background: url("../image/heroim.jpg") no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.65);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: relative;
+      z-index: 2;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      line-height: 1.6;
+      padding: 20px 60px;
+      flex-wrap: wrap;
     }
 
-    header {
-      background-color: #2a9df4;
-      width: 100%;
-      padding: 25px 0;
-      color: white;
-      box-shadow: 0 4px 10px rgba(42, 157, 244, 0.5);
-      text-align: center;
-      font-size: 2.8rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      user-select: none;
-    }
-
-    nav {
-      width: 100%;
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .logo {
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
     }
 
     nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 35px;
       list-style: none;
-      padding: 15px 0;
-    }
-
-    nav ul li {
       display: flex;
+      gap: 20px;
       align-items: center;
-      font-weight: 600;
-      font-size: 1.1rem;
+      flex-wrap: wrap;
     }
 
-    nav ul li a,
-    nav ul li button {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #2a9df4;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 8px 18px;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      font-family: 'Nunito', sans-serif;
-    }
-
-    nav ul li a:hover,
-    nav ul li button:hover {
-      background-color: #2a9df4;
-      color: white;
+    nav ul li a {
+      color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
     }
 
-    main {
-      width: 90%;
-      max-width: 900px;
-      margin: 50px auto 80px;
-      background: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(42, 157, 244, 0.1);
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+      margin-left: 20px;
+    }
+
+    .auth-buttons .btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .auth-buttons .login {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    .auth-buttons .register {
+      background: #ffd700;
+      color: #000;
+    }
+
+    .auth-buttons .login:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .auth-buttons .register:hover {
+      background: #e5c100;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      user-select: none;
+      padding: 0 20px;
+      top: 35%;
     }
 
-    main h2 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: #1b3a75;
-      letter-spacing: 1.5px;
+    .hero-text h1 {
+      font-size: 42px;
+      max-width: 800px;
+      margin: auto;
     }
 
-    main p {
-      font-size: 1.15rem;
-      color: #5a6a83;
-      max-width: 650px;
-      margin: 0 auto 25px;
-      line-height: 1.5;
+    /* Main Content */
+    main {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #f5f5f5;
+      color: #333;
     }
 
-    #guestSection p {
-      font-size: 1.1rem;
-      color: #2a9df4;
+    #welcomeSection, #guestSection {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      color: #000;
     }
 
-    #guestSection p a {
-      color: #2a9df4;
-      font-weight: 700;
+    #welcomeSection h2 span {
+      color: #1e90ff;
+    }
+
+    a {
+      color: #1e90ff;
       text-decoration: underline;
     }
 
-    #guestSection p a:hover {
-      color: #185abd;
+    button#logoutBtn {
+      padding: 6px 14px;
+      border: none;
+      border-radius: 6px;
+      background-color: #ff4d4d;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
     }
 
-    @media (max-width: 620px) {
-      nav ul {
-        flex-wrap: wrap;
+    button#logoutBtn:hover {
+      background-color: #cc0000;
+    }
+
+    /* ✅ Footer */
+    footer {
+      background-color: #002147; /* Navy Blue */
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
         gap: 15px;
       }
-      nav ul li {
-        font-size: 1rem;
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
       }
-      main {
-        padding: 30px 20px;
-        margin: 40px 15px 60px;
+
+      .hero-text h1 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 <body>
-  <header>YouthHub</header>
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="overlay"></div>
+    <div class="navbar">
+      <div class="logo">YouthHub</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="todo.html">📋 To-Do List</a></li>
+          <li><a href="noticeboard.html">📌 Notice Board</a></li>
+          <li><a href="resources.html">📁 Study Resources</a></li>
+          <li><a href="tictactoe.html">🎮 Tic Tac Toe</a></li>
+          <li id="logoutNav" style="display:none;"><button id="logoutBtn">🚪 Logout</button></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons" id="authButtons">
+        <a href="login.html" class="btn login">Login</a>
+        <a href="register.html" class="btn register">Register</a>
+      </div>
+    </div>
+    <div class="hero-text">
+      <h1>Your CSE study companion — resources, notices, and task management all in one place.</h1>
+    </div>
+  </header>
 
-  <nav>
-    <ul>
-      <li><a href="todo.html">📋 To-Do List</a></li>
-      <li><a href="noticeboard.html">📌 Notice Board</a></li>
-      <li><a href="resources.html">📁 Study Resources</a></li>
-      <li><a href="tictactoe.html">🎮 Tic Tac Toe</a></li>
-
-      <li id="loginNav" style="display:none;"><a href="login.html">🔑 Login</a></li>
-      <li id="logoutNav" style="display:none;">
-        <button id="logoutBtn" aria-label="Logout">🚪 Logout</button>
-      </li>
-    </ul>
-  </nav>
-
+  <!-- Main Content -->
   <main>
     <section id="welcomeSection" style="display:none;">
       <h2>Welcome, <span id="userEmail">User</span>!</h2>
-      <p>Your CSE study companion — resources, notices, and task management all in one place.</p>
-    </section>
-
-    <section id="guestSection" style="display:none;">
-      <p>Please <a href="login.html">login</a> to access your dashboard and personalized features.</p>
+      <p>Enjoy full access to all YouthHub features tailored for CSE students.</p>
     </section>
   </main>
 
+  <!-- ✅ Footer Section -->
+  <footer>
+    <p>&copy; 2025 YouthHub. Built for CSE students with care | <a href="mail:support@youthhub.com">Contact Us</a></p>
+  </footer>
+
+  <!-- JS Module for Auth -->
   <script type="module" src="js/auth.js"></script>
 </body>
 </html>
