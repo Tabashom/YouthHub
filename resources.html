@@ -1,25 +1,213 @@
-<!-- resources.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Resources</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Resources - YouthHub</title>
+
+  <link rel="icon" href="image/favboro.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #002147;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 26px;
+    }
+
+    header a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+      color: #ffc300;
+    }
+
+    .hero {
+      width: 100%;
+      height: 220px;
+      background: url('image/bg.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px #000;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    form#uploadForm {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    form input[type="file"],
+    form input[type="text"] {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    form button {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0d75d8;
+    }
+
+    ul#resourceList {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul#resourceList li {
+      background-color: #f0f8ff;
+      border-left: 5px solid #1e90ff;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      display: inline-block;
+      background-color: #002147;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #1a3c7a;
+    }
+
+    footer {
+      margin-top: 60px;
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #4ea1d3;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #78c0ff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      form button, .back-btn {
+        width: 100%;
+      }
+
+      .hero {
+        font-size: 22px;
+        height: 160px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Upload & View Resources</h1>
 
-  <form id="uploadForm">
-    <input type="file" id="resourceFile" required />
-    <input type="text" id="subject" placeholder="Subject (e.g., DSA, DBMS)" required />
-    <button type="submit">Upload</button>
-  </form>
+  <!-- App Bar -->
+  <header>
+    <h1>📚 YouthHub Resources</h1>
+    <a href="index.html">← Back to Dashboard</a>
+  </header>
 
-  <h2>Available Resources</h2>
-  <ul id="resourceList"></ul>
+  <!-- Background Hero Image -->
+  <div class="hero">
+    Study Materials for CSE Students
+  </div>
 
-  <button onclick="location.href='index.html'">Back to Dashboard</button>
+  <!-- Main Content -->
+  <main>
+    <h2>Upload Study Materials</h2>
+    <form id="uploadForm">
+      <input type="file" id="resourceFile" required />
+      <input type="text" id="subject" placeholder="Subject (e.g., DSA, DBMS)" required />
+      <button type="submit">Upload</button>
+    </form>
+
+    <h2>Available Resources</h2>
+    <ul id="resourceList"></ul>
+
+    <a class="back-btn" href="index.html">Back to Dashboard</a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 <strong>YouthHub</strong> | For CSE Learners with ❤️ | <a href="mailto:tabashom15-5701@diu.edu.bd">Contact Us</a>
+  </footer>
 
   <script type="module" src="js/resources.js"></script>
 </body>
