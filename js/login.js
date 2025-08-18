@@ -2,6 +2,8 @@ import { auth } from "./firebase.js";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  setPersistence,
+  browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const loginForm = document.getElementById("loginForm");
@@ -12,7 +14,11 @@ loginForm.addEventListener("submit", (e) => {
   const email = loginForm.email.value.trim();
   const password = loginForm.password.value.trim();
 
-  signInWithEmailAndPassword(auth, email, password)
+  // Set session persistence before signing in
+  setPersistence(auth, browserLocalPersistence)
+    .then(() => {
+      return signInWithEmailAndPassword(auth, email, password);
+    })
     .then(() => {
       alert("Login successful!");
       window.location.href = "index.html"; // redirect after login
