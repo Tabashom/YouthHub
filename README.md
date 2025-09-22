@@ -1,0 +1,1 @@
+A mutifunctional app for students and teacher in order to provide study recoursec,notice and keep a record of their to-do list.Besides, in this app user can play small games like tic-tac-toe for recreational purpose.
